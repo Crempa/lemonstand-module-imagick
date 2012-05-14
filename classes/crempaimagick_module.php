@@ -35,6 +35,11 @@ class CrempaImagick_Module extends Core_ModuleBase
 			return $thumbnail_path;
 		}
 
+		// No source check
+		if(!file_exists(PATH_APP . $file_obj->getPath())){
+			return;
+		}
+
 		// Create new Imagick object
 		$image = new Imagick(PATH_APP . $file_obj->getPath());
 
